@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { assassinos, sobreviventes } from "@/data/compendio";
-import { Card, Elenco, Grid, Page } from "@/components/ui";
+import { Card, Grid, Page } from "@/components/ui";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -11,22 +10,6 @@ function Home() {
       title="Quatro contra um, na névoa."
       lede="Quatro sobreviventes consertam geradores e fogem. Um assassino caça, pendura e entrega todos à Entidade."
     >
-      <p className="mb-2 text-sm tracking-widest text-ember uppercase">Assassinos</p>
-      <Elenco
-        pessoas={assassinos.map((item) => ({
-          nome: item.nome,
-          icone: item.icone,
-          href: "/assassinos",
-        }))}
-      />
-      <p className="mb-2 text-sm tracking-widest text-ember uppercase">Sobreviventes</p>
-      <Elenco
-        pessoas={sobreviventes.map((item) => ({
-          nome: item.nome,
-          icone: item.icone,
-          href: "/sobreviventes",
-        }))}
-      />
       <Grid>
         <Card title="Reparar" aside="Sobreviventes">
           Cinco dos sete geradores ligam os portões. Falhar o teste de perícia explode, avisa o assassino e devolve progresso.

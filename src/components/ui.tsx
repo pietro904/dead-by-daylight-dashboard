@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import type { Faixa } from "@/data/compendio";
 
@@ -47,67 +46,28 @@ export function Card({
   aside,
   children,
   badge,
-  icone,
 }: {
   title: string;
   aside?: string;
   children: ReactNode;
   badge?: ReactNode;
-  icone?: string;
 }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-ink/80 shadow-lg shadow-ink/50 backdrop-blur-md transition-colors duration-150 hover:border-ember/80">
-      {icone ? (
-        <div className="relative h-44">
-          <img
-            src={icone}
-            alt=""
-            className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.04]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-transparent" />
-          {badge ? <div className="absolute top-3 right-3">{badge}</div> : null}
-          <div className="absolute inset-x-0 bottom-0 px-4 pb-3">
-            <h2 className="font-display text-2xl leading-none text-bone">{title}</h2>
-            {aside ? <p className="mt-1 text-sm text-bone/80">{aside}</p> : null}
-          </div>
+    <article className="flex h-full flex-col rounded-card border border-line bg-ink/80 p-4 shadow-lg shadow-ink/50 backdrop-blur-md transition-colors duration-150 hover:border-ember/80">
+      <div className="mb-2 flex items-start justify-between gap-3">
+        <div>
+          <h2 className="font-display text-xl leading-snug text-bone">{title}</h2>
+          {aside ? <p className="text-sm text-muted">{aside}</p> : null}
         </div>
-      ) : (
-        <div className="flex items-start justify-between gap-3 px-4 pt-4">
-          <div>
-            <h2 className="font-display text-xl leading-snug text-bone">{title}</h2>
-            {aside ? <p className="text-sm text-muted">{aside}</p> : null}
-          </div>
-          {badge}
-        </div>
-      )}
-      <div className={`px-4 pb-4 text-sm leading-relaxed text-fg ${icone ? "pt-3" : "pt-2"}`}>{children}</div>
+        {badge}
+      </div>
+      <div className="text-sm leading-relaxed text-fg">{children}</div>
     </article>
   );
 }
 
 export function Grid({ children }: { children: ReactNode }) {
   return <div className="rise grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{children}</div>;
-}
-
-export function Elenco({
-  pessoas,
-}: {
-  pessoas: { nome: string; icone: string; href: "/assassinos" | "/sobreviventes" }[];
-}) {
-  return (
-    <div className="mb-6 flex w-full min-w-0 gap-3 overflow-x-auto pb-2">
-      {pessoas.map((pessoa) => (
-        <Link key={pessoa.nome} to={pessoa.href} className="w-16 shrink-0 text-center">
-          <img
-            src={pessoa.icone}
-            alt=""
-            className="mx-auto h-16 w-16 rounded-full object-cover ring-2 ring-ember/80 transition-transform duration-150 hover:scale-105"
-          />
-          <span className="mt-1 block truncate text-xs text-bone">{pessoa.nome.split(" ")[0]}</span>
-        </Link>
-      ))}
-    </div>
-  );
 }
 
 export function Field({

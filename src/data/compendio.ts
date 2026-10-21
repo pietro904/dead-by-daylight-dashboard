@@ -2,7 +2,6 @@ export type Faixa = "S" | "A" | "B" | "C" | "D";
 
 export type Assassino = {
   nome: string;
-  icone: string;
   original: string;
   poder: string;
   resumo: string;
@@ -12,7 +11,6 @@ export type Assassino = {
 
 export type Sobrevivente = {
   nome: string;
-  icone: string;
   original: string;
   vantagens: string;
   resumo: string;
@@ -36,7 +34,6 @@ export type Vantagem = {
 export const assassinos: Assassino[] = [
   {
     nome: "Enfermeira",
-    icone: "/icones/enfermeira.jpg",
     original: "The Nurse",
     poder: "Último Suspiro de Spencer",
     resumo: "Pisca através de paredes e anda curta. Dominante em perseguição quando o blink está no tempo certo.",
@@ -45,7 +42,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Flagelo",
-    icone: "/icones/flagelo.jpg",
     original: "The Blight",
     poder: "Corrupção Pestilenta",
     resumo: "Corridas em ricochete pelo mapa. Mobilidade alta e pressão constante nos geradores.",
@@ -54,7 +50,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Caipira",
-    icone: "/icones/caipira.jpg",
     original: "The Hillbilly",
     poder: "Motosserra",
     resumo: "Sprint de motosserra que atravessa o mapa e derruba no impacto. Curva e mapa decidem a partida.",
@@ -63,7 +58,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Espírito",
-    icone: "/icones/espirito.jpg",
     original: "The Spirit",
     poder: "Assombração Yamaoka",
     resumo: "Fase invisível guiada pelo som. Leitura de passos, gemidos e grama.",
@@ -72,7 +66,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Ghoul",
-    icone: "/icones/ghoul.jpg",
     original: "The Ghoul",
     poder: "Kagune",
     resumo: "Saltos agressivos e alcance longo. Fecha distância rápido e pune voltas abertas.",
@@ -81,7 +74,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Mestre",
-    icone: "/icones/mestre.jpg",
     original: "The Mastermind",
     poder: "Investida Virulenta",
     resumo: "Wesker avança, agarra e infecciona. Pressão de infecção mais mobilidade no meio do mapa.",
@@ -90,7 +82,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Caçadora",
-    icone: "/icones/cacadora.jpg",
     original: "The Huntress",
     poder: "Machadinhas",
     resumo: "Ataque à distância nas janelas e paletes. Mira e estoque de machadinhas definem o ritmo.",
@@ -99,7 +90,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Artista",
-    icone: "/icones/artista.jpg",
     original: "The Artist",
     poder: "Pássaros do Tormento",
     resumo: "Corvos revelam e ferem à distância. Informação e controle de gerador sem precisar estar perto.",
@@ -108,7 +98,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Carrasco",
-    icone: "/icones/carrasco.jpg",
     original: "The Executioner",
     poder: "Rito do Julgamento",
     resumo: "Trilha de tormento e ataque que atravessa paredes. Pune voltas previsíveis.",
@@ -117,7 +106,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Lich",
-    icone: "/icones/lich.jpg",
     original: "The Lich",
     poder: "Magias de Vecna",
     resumo: "Kit de magias: voo, mão, esfera e dispell. Versátil, exige gestão de recargas.",
@@ -126,7 +114,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Estripador",
-    icone: "/icones/estripador.jpg",
     original: "The Slasher",
     poder: "Mal Onipresente",
     resumo: "Jason some da visão e lança farpas. Pressão de mapa com sustos de curta distância.",
@@ -135,7 +122,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Espectro",
-    icone: "/icones/espectro.jpg",
     original: "The Wraith",
     poder: "Sino Uivante",
     resumo: "Invisível até tocar o sino. Bom para chegar em cima do gerador sem raio de terror.",
@@ -144,7 +130,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Trapaceiro",
-    icone: "/icones/trapaceiro.jpg",
     original: "The Trickster",
     poder: "Facas do Show",
     resumo: "Rajada de lâminas que enche a barra de laceração. Forte em corredores e voltas curtas.",
@@ -153,7 +138,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Legião",
-    icone: "/icones/legiao.jpg",
     original: "The Legion",
     poder: "Frenesi Selvagem",
     resumo: "Corrida que fere em cadeia. Pressão de ferimentos, fraca para finalizar a caçada.",
@@ -162,7 +146,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Caçador",
-    icone: "/icones/cacador.jpg",
     original: "The Trapper",
     poder: "Armadilha de Urso",
     resumo: "Prepara o mapa com armadilhas. Lento no começo, pune caminhos repetidos.",
@@ -171,7 +154,6 @@ export const assassinos: Assassino[] = [
   },
   {
     nome: "Forma",
-    icone: "/icones/forma.jpg",
     original: "The Shape",
     poder: "Mal Interior",
     resumo: "Michael espreita até o Mal III, quando o ataque derruba na hora. Precisa de tempo.",
@@ -183,7 +165,6 @@ export const assassinos: Assassino[] = [
 export const sobreviventes: Sobrevivente[] = [
   {
     nome: "Kate Denson",
-    icone: "/icones/kate.jpg",
     original: "Kate Denson",
     vantagens: "Janela de Oportunidade, Dance Comigo, Fervura",
     resumo: "A leitura de paletes e janelas é a vantagem mais usada do lado sobrevivente.",
@@ -191,7 +172,6 @@ export const sobreviventes: Sobrevivente[] = [
   },
   {
     nome: "Meg Thomas",
-    icone: "/icones/meg.jpg",
     original: "Meg Thomas",
     vantagens: "Arrancada, Adrenalina, Rápida e Silenciosa",
     resumo: "Mobilidade de exaustão e cura grátis quando os portões ligam.",
@@ -199,7 +179,6 @@ export const sobreviventes: Sobrevivente[] = [
   },
   {
     nome: "Zarina Kassir",
-    icone: "/icones/zarina.jpg",
     original: "Zarina Kassir",
     vantagens: "Fora de Gravação, Pelo Povo, Isca",
     resumo: "Proteção forte depois do gancho: resistência, sem aura e sem gemido.",
@@ -207,7 +186,6 @@ export const sobreviventes: Sobrevivente[] = [
   },
   {
     nome: "Jeff Johansen",
-    icone: "/icones/jeff.jpg",
     original: "Jeff Johansen",
     vantagens: "Distorção, Cuidados Posteriores, Colapso",
     resumo: "Esconde a aura no começo da partida e atrapalha leitura de informação.",
@@ -215,7 +193,6 @@ export const sobreviventes: Sobrevivente[] = [
   },
   {
     nome: "Mikaela Reid",
-    icone: "/icones/mikaela.jpg",
     original: "Mikaela Reid",
     vantagens: "Bênção: Círculo de Cura, Bênção: Passo Sombrio, Clarividência",
     resumo: "Totem de bênção para o grupo curar e sumir das marcas de arranhão.",
@@ -223,7 +200,6 @@ export const sobreviventes: Sobrevivente[] = [
   },
   {
     nome: "Bill Overbeck",
-    icone: "/icones/bill.jpg",
     original: "Bill Overbeck",
     vantagens: "Inquebrável, Tempo Emprestado, Deixado para Trás",
     resumo: "Levanta do chão sozinho uma vez. Clássico contra slug.",
@@ -231,7 +207,6 @@ export const sobreviventes: Sobrevivente[] = [
   },
   {
     nome: "Feng Min",
-    icone: "/icones/feng.jpg",
     original: "Feng Min",
     vantagens: "Ágil, Alerta, Técnica",
     resumo: "Salto rápido de exaustão e aviso quando o assassino chuta um gerador.",
@@ -239,7 +214,6 @@ export const sobreviventes: Sobrevivente[] = [
   },
   {
     nome: "Jake Park",
-    icone: "/icones/jake.jpg",
     original: "Jake Park",
     vantagens: "Vontade de Ferro, Espírito Calmo, Sabotador",
     resumo: "Silencia a dor. Ainda vale em assassinos que caçam pelo som.",
@@ -247,7 +221,6 @@ export const sobreviventes: Sobrevivente[] = [
   },
   {
     nome: "David King",
-    icone: "/icones/david.jpg",
     original: "David King",
     vantagens: "Morte Súbita, Sem Sentimento, Estamos Feitos Disso",
     resumo: "Esquiva no momento do golpe. Exige timing e ainda divide o meta de exaustão.",
@@ -255,7 +228,6 @@ export const sobreviventes: Sobrevivente[] = [
   },
   {
     nome: "Laurie Strode",
-    icone: "/icones/laurie.jpg",
     original: "Laurie Strode",
     vantagens: "Golpe Decisivo, Objeto de Obsessão, Único Sobrevivente",
     resumo: "O teste de perícia que solta do ombro e atordoa quem insiste no túnel.",
@@ -263,7 +235,6 @@ export const sobreviventes: Sobrevivente[] = [
   },
   {
     nome: "Claudette Morel",
-    icone: "/icones/claudette.jpg",
     original: "Claudette Morel",
     vantagens: "Empatia, Botânica, Autocuidado",
     resumo: "Cura o grupo mais rápido. Autocuidado existe, mas costuma atrasar a fuga.",
@@ -271,7 +242,6 @@ export const sobreviventes: Sobrevivente[] = [
   },
   {
     nome: "Dwight Fairfield",
-    icone: "/icones/dwight.jpg",
     original: "Dwight Fairfield",
     vantagens: "Vínculo, Prove-se, Líder",
     resumo: "Informação do time e reparo em dupla. Bom para quem joga com amigos.",
@@ -457,11 +427,6 @@ export const faixasAssassino: { faixa: Faixa; nomes: string; leitura: string }[]
   },
 ];
 
-
-export function iconeDe(nome: string) {
-  const pessoa = [...assassinos, ...sobreviventes].find((item) => item.nome === nome);
-  return pessoa?.icone;
-}
 
 export const nav = [
   { href: "/", label: "Visão geral" },
