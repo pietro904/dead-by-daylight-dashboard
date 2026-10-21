@@ -1,34 +1,18 @@
-# Dead by Daylight Dashboard
+# A Fogueira
 
-Painel interativo com informações sobre Dead by Daylight.
+Compêndio de Dead by Daylight em português. Páginas de visão geral, assassinos, sobreviventes, mapas, vantagens e tiers.
 
-## Sobre
+## Rodar
 
-Dashboard estático em HTML/CSS/JS com dados sobre Killers, Survivors, Maps, Perks e mais do jogo Dead by Daylight.
+```bash
+npm install
+npm run dev
+```
 
-## Como usar
+Abre em `http://127.0.0.1:8080`.
 
-1. Clone o repositório
-2. Abra o arquivo `index.html` no navegador
-3. Ou habilite GitHub Pages nas configurações do repositório para deploy automático
+## Onde mexer
 
-## Tecnologias
-
-- HTML5
-- CSS3 (tema escuro inspirado no jogo, cores preto, branco e vermelho sangue)
-- JavaScript vanilla
-
-## Seções
-
-- Visão geral do jogo
-- Killers populares e powers
-- Survivors
-- Maps e Realms
-- Perks mais usados
-- Tier lists aproximadas
-
-## Créditos
-
-Dados baseados em informações públicas e wikis do jogo. Dead by Daylight é marca registrada da Behaviour Interactive.
-
-Feito com ❤️ para a comunidade DBD.
+- Textos e listas: `src/data/compendio.ts`
+- Páginas: `src/routes/`
+- Visual e névoa: `src/styles.css` e `src/components/shell.tsx`
