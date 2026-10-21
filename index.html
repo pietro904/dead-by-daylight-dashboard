@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dead by Daylight Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #000 0%, #1a0000 100%);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid #cc0000;
+            box-shadow: 0 4px 20px rgba(204, 0, 0, 0.3);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 0 0 10px #cc0000;
+            letter-spacing: 2px;
+        }
+        header p { color: #aaa; margin-top: 0.5rem; }
+        nav {
+            background: #111;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+        }
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        nav a:hover, nav a.active {
+            background: #cc0000;
+            color: #fff;
+        }
+        main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        section {
+            background: #141414;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #222;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        section h2 {
+            color: #cc0000;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .card {
+            background: #1a1a1a;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid #cc0000;
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-4px); border-left-color: #ff3333; }
+        .card h3 { color: #fff; margin-bottom: 0.5rem; }
+        .card p { color: #bbb; font-size: 0.95rem; }
+        .badge {
+            display: inline-block;
+            background: #cc0000;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-right: 0.3rem;
+        }
+        .tier-s { border-left-color: #ffd700; }
+        .tier-a { border-left-color: #ff6b35; }
+        .tier-b { border-left-color: #4ecdc4; }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            border-top: 1px solid #222;
+            margin-top: 3rem;
+        }
+        .search {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 4px;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            nav { gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DEAD BY DAYLIGHT</h1>
+        <p>Painel de Informações • Killers • Survivors • Maps • Perks</p>
+    </header>
+
+    <nav>
+        <a href="#overview">Overview</a>
+        <a href="#killers">Killers</a>
+        <a href="#survivors">Survivors</a>
+        <a href="#maps">Maps</a>
+        <a href="#perks">Perks</a>
+        <a href="#tiers">Tier Lists</a>
+    </nav>
+
+    <main>
+        <section id="overview">
+            <h2>Overview do Jogo</h2>
+            <p><strong>Dead by Daylight</strong> é um jogo de survival horror assimétrico 4v1 desenvolvido pela Behaviour Interactive. Quatro Survivors devem reparar 5 de 7 geradores para abrir as Exit Gates e escapar, enquanto o Killer tenta hookar e sacrificar todos para a Entity.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Objetivo Survivors</h3>
+                    <p>Reparar geradores, evitar o Killer, curar, abrir gates e escapar. Itens: medkits, toolboxes, flashlights, keys.</p>
+                </div>
+                <div class="card">
+                    <h3>Objetivo Killer</h3>
+                    <p>Caçar, downar e hookar Survivors. Cada Killer tem um Power único. 3 hooks = morte.</p>
+                </div>
+                <div class="card">
+                    <h3>The Entity</h3>
+                    <p>Força malevolente que prende os personagens na Fog. Os mapas são criações baseadas nas memórias dos Killers.</p>
+                </div>
+                <div class="card">
+                    <h3>Progressão</h3>
+                    <p>Bloodpoints, Bloodweb, Prestige, Rift Pass, Archives e challenges. Mais de 50 chapters/DLC.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="killers">
+            <h2>Killers Populares</h2>
+            <input type="text" class="search" id="killerSearch" placeholder="Buscar Killer..." onkeyup="filterCards('killerSearch', 'killerGrid')">
+            <div class="grid" id="killerGrid">
+                <div class="card"><h3>The Nurse</h3><p>Power: Spencer's Last Breath (Blink). Extremamente forte em chases. S-tier.</p><span class="badge">S-Tier</span></div>
+                <div class="card"><h3>The Blight</h3><p>Power: Blighted Corruption (Rush). Alta mobilidade. S-tier.</p><span class="badge">S-Tier</span></div>
+                <div class="card"><h3>The Hillbilly</h3><p>Power: Chainsaw. Sprint de alta velocidade. S-tier.</p><span class="badge">S-Tier</span></div>
+                <div class="card"><h3>The Spirit</h3><p>Power: Yamaoka's Haunting (Phase). Stealth + teleport. S-tier.</p><span class="badge">S-Tier</span></div>
+                <div class="card"><h3>The Huntress</h3><p>Power: Hunting Hatchets. Range e hatchets. A-tier.</p><span class="badge">A-Tier</span></div>
+                <div class="card"><h3>The Mastermind</h3><p>Power: Virulent Bound (Wesker). Dash e infecção. S/A-tier.</p><span class="badge">S-Tier</span></div>
+                <div class="card"><h3>The Ghoul</h3><p>Power: Kagune (Ken Kaneki). Alta mobilidade. S-tier recente.</p><span class="badge">S-Tier</span></div>
+                <div class="card"><h3>The Slasher</h3><p>Power: Omnipresent Evil (Jason). Invisibilidade e spikes. A-tier.</p><span class="badge">A-Tier</span></div>
+                <div class="card"><h3>The Trapper</h3><p>Power: Bear Trap. Clássico, setup de traps. D-tier atualmente.</p><span class="badge">D-Tier</span></div>
+                <div class="card"><h3>The Wraith</h3><p>Power: Wailing Bell. Cloak/uncloak. Bom para stealth.</p><span class="badge">B-Tier</span></div>
+                <div class="card"><h3>The Trickster</h3><p>Power: Showstopper (knives). Range com facas. B-tier.</p><span class="badge">B-Tier</span></div>
+                <div class="card"><h3>The Artist</h3><p>Power: Birds of Torment. Info e range com pássaros. A-tier.</p><span class="badge">A-Tier</span></div>
+            </div>
+        </section>
+
+        <section id="survivors">
+            <h2>Survivors Destaque</h2>
+            <div class="grid">
+                <div class="card"><h3>Kate Denson</h3><p>Teachable: Windows of Opportunity. Mostra pallets, windows e breakables. Uma das mais úteis.</p></div>
+                <div class="card"><h3>Meg Thomas</h3><p>Teachables: Sprint Burst, Adrenaline, Quick & Quiet. Excelente para mobilidade.</p></div>
+                <div class="card"><h3>Zarina Kassir</h3><p>Teachable: Off the Record. Anti-tunnel forte com Endurance e aura hide.</p></div>
+                <div class="card"><h3>Bill Overbeck</h3><p>Teachables: Unbreakable, Borrowed Time. Anti-slug e anti-tunnel clássicos.</p></div>
+                <div class="card"><h3>Feng Min</h3><p>Teachables: Lithe, Alert, Technician. Bom para loops e info.</p></div>
+                <div class="card"><h3>Mikaela Reid</h3><p>Teachables: Boon: Circle of Healing, Shadow Step. Suporte de grupo.</p></div>
+            </div>
+        </section>
+
+        <section id="maps">
+            <h2>Maps & Realms</h2>
+            <div class="grid">
+                <div class="card"><h3>The MacMillan Estate</h3><p>Coal Tower, Groaning Storehouse, Ironworks of Misery, Shelter Woods, Suffocation Pit. Associado ao Trapper.</p></div>
+                <div class="card"><h3>Coldwind Farm</h3><p>Fractured Cowshed, Rancid Abattoir, Rotten Fields, Thompson House, Torment Creek. Hillbilly.</p></div>
+                <div class="card"><h3>Raccoon City</h3><p>Police Station East/West Wing. Nemesis e Mastermind. Mapas indoor complexos.</p></div>
+                <div class="card"><h3>Grave of Glenvale</h3><p>Dead Dawg Saloon. Deathslinger. Muito favorável a Killers (loops curtos).</p></div>
+                <div class="card"><h3>Yamaoka Estate</h3><p>Family Residence, Sanctum of Wrath. Spirit e Oni. Japonês estético.</p></div>
+                <div class="card"><h3>The Game</h3><p>Gideon Meat Plant. Pig. Multi-nível, bom para alguns Killers de trap.</p></div>
+            </div>
+        </section>
+
+        <section id="perks">
+            <h2>Perks Mais Usados (aprox. 2026)</h2>
+            <h3 style="color:#ff6666; margin:1rem 0 0.5rem;">Killer Perks</h3>
+            <div class="grid">
+                <div class="card"><h3>Scourge Hook: Pain Resonance</h3><p>Explode o gen mais progredido no hook. Meta absoluta.</p></div>
+                <div class="card"><h3>Nowhere to Hide</h3><p>Revela auras ao danificar gen. Info de curto alcance.</p></div>
+                <div class="card"><h3>Pop Goes the Weasel</h3><p>Regressão forte de gen após hook.</p></div>
+                <div class="card"><h3>Lethal Pursuer</h3><p>Auras no início do trial. Ótimo para early pressure.</p></div>
+                <div class="card"><h3>Deadlock / No Holds Barred</h3><p>Bloqueia gens progressivamente.</p></div>
+            </div>
+            <h3 style="color:#66ff66; margin:1.5rem 0 0.5rem;">Survivor Perks</h3>
+            <div class="grid">
+                <div class="card"><h3>Windows of Opportunity</h3><p>Mostra loops. Extremamente popular.</p></div>
+                <div class="card"><h3>Sprint Burst / Lithe</h3><p>Exhaustion perks para ganhar distância.</p></div>
+                <div class="card"><h3>Off the Record</h3><p>Anti-tunnel com Endurance e stealth.</p></div>
+                <div class="card"><h3>Decisive Strike</h3><p>Anti-tunnel clássico (skill check stun).</p></div>
+                <div class="card"><h3>Adrenaline</h3><p>Speed + heal no endgame.</p></div>
+            </div>
+        </section>
+
+        <section id="tiers">
+            <h2>Tier Lists Aproximadas (Patch ~10.2)</h2>
+            <p style="margin-bottom:1rem;">Tiers mudam com patches. Estes são baseados em consenso da comunidade em 2026.</p>
+            <div class="grid">
+                <div class="card tier-s"><h3>S-Tier Killers</h3><p>Nurse, Blight, Hillbilly, Spirit, Ghoul, Mastermind</p></div>
+                <div class="card tier-a"><h3>A-Tier Killers</h3><p>Huntress, Xenomorph, Executioner, Lich, Dracula, Animatronic, Slasher, First, Krasue, Artist</p></div>
+                <div class="card tier-b"><h3>B-Tier Killers</h3><p>Judgment, Houndmaster, Unknown, Singularity, Oni, Plague, Knight, Nemesis, Dredge, Good Guy, Wraith...</p></div>
+                <div class="card"><h3>S-Tier Survivors (teachables)</h3><p>Kate (Windows), Meg (Sprint/Adrenaline), Zarina (OTR), Jeff (Distortion), Mikaela (Boons)</p></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Dead by Daylight Dashboard &bull; Dados informativos baseados em fontes públicas &bull; Não afiliado à Behaviour Interactive</p>
+        <p>Repositório criado no GitHub: pietro904/dead-by-daylight-dashboard</p>
+    </footer>
+
+    <script>
+        function filterCards(searchId, gridId) {
+            const input = document.getElementById(searchId).value.toLowerCase();
+            const cards = document.getElementById(gridId).getElementsByClassName('card');
+            for (let card of cards) {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(input) ? '' : 'none';
+            }
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
