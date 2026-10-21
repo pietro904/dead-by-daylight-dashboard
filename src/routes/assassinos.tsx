@@ -40,6 +40,7 @@ function Assassinos() {
               title={item.nome}
               aside={item.original}
               badge={<FaixaBadge faixa={item.faixa} />}
+              icone={item.icone}
             >
               <p className="mb-2 font-medium text-ember">{item.poder}</p>
               <p className="text-muted">{item.resumo}</p>

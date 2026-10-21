@@ -39,6 +39,7 @@ function Sobreviventes() {
               title={item.nome}
               aside={item.original === item.nome ? undefined : item.original}
               badge={<FaixaBadge faixa={item.faixa} />}
+              icone={item.icone}
             >
               <p className="mb-2 font-medium text-ember">{item.vantagens}</p>
               <p className="text-muted">{item.resumo}</p>

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { vantagens } from "@/data/compendio";
+import { iconeDe, vantagens } from "@/data/compendio";
 import { Card, Chips, Field, Grid, Page } from "@/components/ui";
 
 export const Route = createFileRoute("/vantagens")({ component: VantagensPage });
@@ -35,16 +35,24 @@ function VantagensPage() {
         <p className="text-muted">Nenhuma vantagem com esse filtro.</p>
       ) : (
         <Grid>
-          {lista.map((item) => (
+          {lista.map((item) => {
+            const icone = iconeDe(item.dono);
+            return (
             <Card
               key={item.nome}
               title={item.nome}
               aside={item.lado === "assassino" ? "Assassino" : "Sobrevivente"}
             >
-              <p className="mb-2 font-medium text-ember">{item.dono}</p>
+              <div className="mb-2 flex items-center gap-2">
+                {icone ? (
+                  <img src={icone} alt="" className="h-8 w-8 rounded-full object-cover ring-1 ring-ember/80" />
+                ) : null}
+                <p className="font-medium text-ember">{item.dono}</p>
+              </div>
               <p className="text-muted">{item.resumo}</p>
             </Card>
-          ))}
+            );
+          })}
         </Grid>
       )}
     </Page>
